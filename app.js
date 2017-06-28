@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var port = 8080;
+var port = 80;
 var app = express();
 
 // td.trackEvent('click')
@@ -76,9 +76,4 @@ app.use(function(err, req, res, next) {
 
 app.listen(port,function(){
   console.log("client started with : "+port);
-});
-
-app.listen(8088,function(){
-    console.log(__dirname);
-    console.log("client started with : "+8088);
 });
