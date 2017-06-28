@@ -29,18 +29,18 @@ app.use(function(req,res,next){
 
 var n = 0;
 
-// app.use(function(req,res,next){
-//   var log_param = {
-//       host: req.headers.origin,
-//       url : req.url,
-//       method : req.method,
-//       get_data : JSON.stringify(req.query),
-//       post_data : JSON.stringify(req.body),
-//       req_count : n
-//   };
-//   logger.emit('server', log_param);
-//   next();
-// });
+app.use(function(req,res,next){
+  var log_param = {
+      host: req.headers.origin,
+      url : req.url,
+      method : req.method,
+      get_data : JSON.stringify(req.query),
+      post_data : JSON.stringify(req.body),
+      req_count : n
+  };
+  logger.emit('server', log_param);
+  next();
+});
 
 app.get('/', function(req,res,next){
     res.render('index', { title: 'Express' });

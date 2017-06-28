@@ -5,7 +5,7 @@ var td = new Treasure({
     database : 'terminal',
     writeKey : '9313/053aa6ce28c160b06a41fbac0f22f35e72890ca3'
 });
-td.trackPageview('test_client');
+td.trackPageview('client');
 
 
 // td.trackEvent('click')
