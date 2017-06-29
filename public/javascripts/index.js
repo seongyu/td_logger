@@ -30,7 +30,7 @@ var save = function(me){
 
     $.ajax({
         type: "POST",
-        url: 'http://172.31.13.87/',
+        url: 'http://13.124.143.112/',
         data: data,
         success: function(res){
             $('#detail_modal').modal('hide');
