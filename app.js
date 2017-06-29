@@ -7,7 +7,8 @@ var bodyParser = require('body-parser');
 var port = 80;
 var app = express();
 
-// td.trackEvent('click')
+var logger = require('fluent-logger');
+logger.configure('td.test_db', {host: 'localhost', port: 24224});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
