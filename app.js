@@ -39,6 +39,7 @@ app.use(function(req,res,next){
       post_data : JSON.stringify(req.body),
       req_count : n
   };
+  console.log(req);
   console.log(log_param);
   logger.emit('server', log_param);
   next();
