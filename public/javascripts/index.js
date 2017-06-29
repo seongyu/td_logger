@@ -33,7 +33,7 @@ var save = function(me){
         data: data,
         success: function(res){
             $('#detail_modal').modal('hide');
-            alert(res.status);
+            alert(res.status+' '+res.message+' : '+res.count);
         }
     });
 };

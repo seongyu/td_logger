@@ -48,7 +48,7 @@ app.get('/', function(req,res,next){
     res.render('index', { title: 'Express' });
 });
 app.post('/',function(req,res,next){
-  res.send({status:'success',message:'Successfully sent...'});
+  res.send({status:'SUCCESS',message:'Successfully sent...',count:n});
 });
 app.get('/no1', function(req,res,next){
     res.render('no1', { title: 'Express' });
