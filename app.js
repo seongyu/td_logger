@@ -40,6 +40,7 @@ app.use(function(req,res,next){
       req_count : n
   };
   logger.emit('server', log_param);
+  n++;
   next();
 });
 
