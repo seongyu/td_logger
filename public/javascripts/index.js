@@ -11,7 +11,6 @@ td.trackPageview('client');
 // td.trackEvent('click')
 var open_detail = function(me){
     var id = me.parentElement.id;
-    console.log(id);
     $('#modal-title').html(id);
     switch(id){
         case 'head-1' : $('#modal-content').html(detail1); break;
@@ -38,10 +37,34 @@ var save = function(me){
         }
     });
 };
+
+var clickEt = function(me){
+    td.trackEvent('button',{name:'click',target:me.innerHTML});
+};
+
 var tracklink = function(from,to) {
     td.trackEvent('button', {name:'move',from:from,to: to});
 };
+var intv = 0;
+var intervalEvent = function(n){
+    var random = parseInt(Math.random()*100000000000000).toString(16);
+    var data = {name:'interval',target:'interval+'+random+' : '+n};
 
+    td.trackEvent('button',data);
+
+    $.ajax({
+        type: "POST",
+        url: 'http://13.124.143.112/',
+        data: data,
+        success: function(res){
+            intv++;
+        }
+    });
+};
+
+setInterval(function(){
+    intervalEvent(intv);
+},10000);
 var detail1 = "When pulses are overlapped, any number of complications may arise, including the loss of one or more signals, as shown in Figures 3 and 4. If the signals are overlapped while the searcher is “marking,” then both signals will be cancelled. Once the signals no longer overlap, then signals that were originally masked are often shown again on the beacon display. These issues can make a multiple- beacon search unreliable and more complicated than a traditional search using signal strength analysis. The problem can be mitigated, but not eliminated, through analysis of the pulse frequency.";
 var detail2 = "How likely is the phenomenon of signal overlap? In the field it can be very unpredictable. It is only a matter of chance (or bad luck) that the searcher will attempt to “mark” a victim when their signal is overlapping with another. In some scenarios it is quite rare and in others it can consistently scuttle a search. This is because the probability of signal overlap varies widely, depending on the configuration and number of transmitters.";
 var detail3 = "To determine the scope of the problem, we developed both a computer simulation program and a mathematical model to predict the overlap characteristics for various combinations of transmitters. Using measured beacon properties (pulse period and pulse width) for a wide selection of beacons, the computer program accurately simulates the simultaneous operation of two to six beacons. Since the overlap characteristics change with time–and may be dependent on when the units are turned on–it is necessary to consider on the order of 1000N signal pulses when a group of N beacons is analyzed. The computer simulation steps through all of these pulses, keeping track of the durations of both overlapped and clear signal segments.";

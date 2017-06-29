@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var port = 80;
+var port = 8088;
 var app = express();
 
 var logger = require('fluent-logger');
@@ -39,8 +39,6 @@ app.use(function(req,res,next){
       post_data : JSON.stringify(req.body),
       req_count : n
   };
-  console.log(req);
-  console.log(log_param);
   logger.emit('server', log_param);
   next();
 });

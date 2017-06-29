@@ -10,3 +10,8 @@ a {
 .custom_jumbo{
   background-color:white;
 }
+
+.custom_divide{
+  padding-top:10px;
+  padding-bottom:10px;
+}
