@@ -8,7 +8,7 @@ var port = 80;
 var app = express();
 
 var logger = require('fluent-logger');
-logger.configure('td.test_db', {host: 'localhost', port: 24224});
+logger.configure('td.terminal', {host: 'localhost', port: 24224});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,6 +39,7 @@ app.use(function(req,res,next){
       post_data : JSON.stringify(req.body),
       req_count : n
   };
+  console.log(log_param);
   logger.emit('server', log_param);
   next();
 });
