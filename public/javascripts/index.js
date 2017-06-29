@@ -40,6 +40,7 @@ var save = function(me){
 
 var clickEt = function(me){
     td.trackEvent('button',{name:'click',target:me.innerHTML});
+    alert('You clicked! : '+me.innerHTML);
 };
 
 var tracklink = function(from,to) {
