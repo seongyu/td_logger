@@ -31,17 +31,25 @@ app.use(function(req,res,next){
 var n = 0;
 
 app.use(function(req,res,next){
-  var log_param = {
-      host: req.headers.origin,
-      url : req.url,
-      method : req.method,
-      get_data : JSON.stringify(req.query),
-      post_data : JSON.stringify(req.body),
-      req_count : n
-  };
-  logger.emit('server', log_param);
-  n++;
-  next();
+    var post = req.body;
+    var log_param = {
+        host: req.headers.origin,
+        url : req.url,
+        method : req.method,
+        req_count : n
+    };
+
+    if(req.method=='post'){
+        log_param.act_name = post.name;
+        log_param.act_target = post.target;
+        log_param.act_from = post.from;
+        log_param.act_to = post.to;
+        log_param.act_count = post.count;
+    }
+
+    logger.emit('server', log_param);
+    n++;
+    next();
 });
 
 app.get('/', function(req,res,next){
