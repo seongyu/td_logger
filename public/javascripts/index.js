@@ -2,7 +2,7 @@
  * Created by leonkim on 2017. 6. 27..
  */
 var intv = 0;
-//var url = 'http://localhost:8088/';
+// var url = 'http://localhost:8088/';
 var url = 'http://13.124.143.112/';
 
 var td = new Treasure({
@@ -29,12 +29,12 @@ var save = function(me){
     var selectedTitle = me.parentElement.parentElement
         .getElementsByClassName('modal-title')[0].innerHTML;
     var data = {name:'save',target:selectedTitle};
-    td_btnEvent(data);
+    var post_data = td_btnEvent(data);
 
     $.ajax({
         type: "POST",
         url: url,
-        data: data,
+        data: post_data,
         success: function(res){
             $('#detail_modal').modal('hide');
             alert(res.status+' '+res.message+' : '+res.count);
@@ -55,12 +55,12 @@ var intervalEvent = function(){
     var random = parseInt(Math.random()*100000000000000).toString(16);
     var data = {name:'interval',target:random};
 
-    td_btnEvent(data);
+    var post_data = td_btnEvent(data);
 
     $.ajax({
         type: "POST",
         url: url,
-        data: data,
+        data: post_data,
         success: function(res){
         }
     });
@@ -76,6 +76,8 @@ var td_btnEvent = function(obj){
     json.count = intv;
     td.trackEvent('button',json);
     intv++;
+
+    return json;
 };
 
 setInterval(function(){
