@@ -39,7 +39,7 @@ app.use(function(req,res,next){
         req_count : n
     };
 
-    if(req.method=='post'){
+    if(req.method.toLowerCase()=='post'){
         log_param.act_name = post.name;
         log_param.act_target = post.target;
         log_param.act_from = post.from;
