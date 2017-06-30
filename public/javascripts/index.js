@@ -1,11 +1,14 @@
 /**
  * Created by leonkim on 2017. 6. 27..
  */
+var intv = 0;
+//var url = 'http://localhost:8088/';
+var url = 'http://13.124.143.112/';
+
 var td = new Treasure({
     database : 'terminal',
     writeKey : '9313/053aa6ce28c160b06a41fbac0f22f35e72890ca3'
 });
-var intv = 0;
 td.trackPageview('client');
 
 var open_detail = function(me){
@@ -30,7 +33,7 @@ var save = function(me){
 
     $.ajax({
         type: "POST",
-        url: 'http://13.124.143.112/',
+        url: url,
         data: data,
         success: function(res){
             $('#detail_modal').modal('hide');
@@ -56,7 +59,7 @@ var intervalEvent = function(){
 
     $.ajax({
         type: "POST",
-        url: 'http://13.124.143.112/',
+        url: url,
         data: data,
         success: function(res){
         }
