@@ -2,7 +2,7 @@
  * Created by leonkim on 2017. 6. 27..
  */
 var intv = 0;
-// var url = 'http://localhost:8088/';
+//var url = 'http://localhost:8088/';
 var url = 'http://13.124.143.112/';
 
 var td = new Treasure({
@@ -49,6 +49,7 @@ var clickEt = function(me){
 
 var tracklink = function(from,to) {
     td_btnEvent({name:'move',from:from,to: to});
+    location.href=to;
 };
 
 var intervalEvent = function(){
